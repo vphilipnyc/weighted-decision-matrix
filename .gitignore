@@ -1,6 +1,5 @@
 HELP.md
 target/
-!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
 resources.properties
@@ -30,7 +29,6 @@ build/
 
 ### VS Code ###
 .vscode/
-src/main/resources/static/transactions.csv
 
 # Ignore Gradle project-specific cache directory
 .gradle
