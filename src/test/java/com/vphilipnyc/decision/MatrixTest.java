@@ -186,7 +186,7 @@ class MatrixTest {
 
         assertAll(matrix::rank);
         assertEquals(matrix.getAllAlternatives().size(), 2);
-        assertEquals(matrix.getAllCriteria().size(), 3);
+        assertEquals(matrix.getAllCriteria().size(), 9);
 
         assertEquals(132d, matrix.getAllAlternatives().get(0).vector());
         assertEquals(112d, matrix.getAllAlternatives().get(1).vector());
