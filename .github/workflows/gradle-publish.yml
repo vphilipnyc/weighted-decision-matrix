@@ -34,6 +34,12 @@ jobs:
       with:
         arguments: build
 
+    - name: Grant Permissions to gradlew
+      run: chmod +x gradlew
+
+    - name: Test
+      run: ./gradlew test --tests "*"
+
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
     # the publishing section of your build.gradle
     - name: Publish to GitHub Packages
