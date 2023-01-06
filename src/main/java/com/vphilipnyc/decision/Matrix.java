@@ -25,7 +25,7 @@ public class Matrix implements Taggable {
     private SortedSet<Tag> tags;
 
     public void rank() {
-        this.setAllAlternatives(decisionMethod.run()); //setter used sparingly
+        allAlternatives = decisionMethod.run();
     }
 
     public Optional<Alternative> mostDesired() {
@@ -35,4 +35,27 @@ public class Matrix implements Taggable {
     public Optional<Alternative> leastDesired() {
         return getAllAlternatives().stream().min(Comparator.comparing(Alternative::vector));
     }
+
+    //helper methods for a front-end
+
+    public void addAlternative(Alternative alternative) {
+        allAlternatives.add(alternative);
+    }
+
+    public void removeAlternative(Alternative alternative) {
+        allAlternatives.remove(alternative);
+    }
+
+    public void clearAlternatives() {
+        allAlternatives.clear();
+    }
+
+    public void addCriterion(Criterion criterion) {
+        allCriteria.add(criterion);
+    }
+
+    public void removeCriterion(Criterion criterion) {
+        allCriteria.remove(criterion);
+    }
+
 }
