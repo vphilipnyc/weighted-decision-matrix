@@ -17,7 +17,7 @@ public class NormalizedWeightedSumDecisionMethod implements DecisionMethod {
     @Override
     public List<Alternative> run() {
         //TODO
-        throw new RuntimeException();
+        throw new UnsupportedOperationException();
     }
 
     @Override
