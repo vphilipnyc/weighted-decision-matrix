@@ -3,8 +3,10 @@ package com.vphilipnyc.decision;
 import com.vphilipnyc.decision.methods.DecisionMethod;
 import com.vphilipnyc.decision.tag.Tag;
 import com.vphilipnyc.decision.tag.Taggable;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.*;
 
@@ -13,6 +15,8 @@ import java.util.*;
  */
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Matrix implements Taggable {
     private Long id;
     private String name;
