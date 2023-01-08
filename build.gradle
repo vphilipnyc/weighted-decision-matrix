@@ -13,7 +13,6 @@ repositories {
 }
 
 dependencies {
-    //NotNull and NotBlank, etc for Entities
     implementation group: 'jakarta.persistence', name: 'jakarta.persistence-api', version: '3.1.0'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
