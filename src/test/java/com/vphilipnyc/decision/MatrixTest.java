@@ -130,7 +130,7 @@ class MatrixTest {
         assertEquals(matrix.getAllAlternatives().size(), 1);
         assertEquals(matrix.getAllCriteria().size(), 3);
 
-        double totalAlternativeWeight = matrix.getAllAlternatives().get(0).vector();
+        double totalAlternativeWeight = matrix.getAllAlternatives().get(0).getVector();
         assertEquals(132d, totalAlternativeWeight);
     }
 
@@ -188,15 +188,15 @@ class MatrixTest {
         assertEquals(matrix.getAllAlternatives().size(), 2);
         assertEquals(matrix.getAllCriteria().size(), 3);
 
-        assertEquals(132d, matrix.getAllAlternatives().get(0).vector());
-        assertEquals(112d, matrix.getAllAlternatives().get(1).vector());
+        assertEquals(132d, matrix.getAllAlternatives().get(0).getVector());
+        assertEquals(112d, matrix.getAllAlternatives().get(1).getVector());
 
-        double totalAlternativeWeight = matrix.getAllAlternatives().get(0).vector();
+        double totalAlternativeWeight = matrix.getAllAlternatives().get(0).getVector();
         assertEquals(132d, totalAlternativeWeight);
 
         matrix.leastDesired().ifPresent(alternative ->
-                assertEquals(hughJackman.item().getName(), alternative.item().getName()));
+                assertEquals(hughJackman.getItem().getName(), alternative.getItem().getName()));
         matrix.mostDesired().ifPresent(alternative ->
-                assertEquals(nataliePortman.item().getName(), alternative.item().getName()));
+                assertEquals(nataliePortman.getItem().getName(), alternative.getItem().getName()));
     }
 }
