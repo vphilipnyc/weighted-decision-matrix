@@ -17,6 +17,7 @@ import java.util.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Matrix implements Taggable, Persistable {
     @Id
     private Long id;
@@ -24,14 +25,17 @@ public class Matrix implements Taggable, Persistable {
     private String description;
     private Long userAuthorId;
     @ManyToMany
+    @ToString.Exclude
     private List<Criterion> allCriteria;
     @ManyToMany
+    @ToString.Exclude
     private List<Alternative> allAlternatives;
     @ElementCollection
     private Set<Long> allUserParticipantIds;
     @Transient
     private DecisionMethod decisionMethod;
     @ManyToMany
+    @ToString.Exclude
     private SortedSet<Tag> tags;
 
     public void rank() {
