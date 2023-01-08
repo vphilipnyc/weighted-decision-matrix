@@ -1,9 +1,9 @@
 package com.vphilipnyc.decision.tag;
 
 import com.vphilipnyc.decision.Persistable;
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.List;
 import java.util.SortedSet;
 

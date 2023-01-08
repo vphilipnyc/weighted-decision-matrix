@@ -3,9 +3,9 @@ package com.vphilipnyc.decision;
 import com.vphilipnyc.decision.methods.DecisionMethod;
 import com.vphilipnyc.decision.tag.Tag;
 import com.vphilipnyc.decision.tag.Taggable;
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.*;
 
 /**
