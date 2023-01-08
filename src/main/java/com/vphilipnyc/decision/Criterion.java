@@ -17,6 +17,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 public class Criterion implements Comparable<Criterion> {
     @Id
     private Long id;
@@ -26,6 +27,7 @@ public class Criterion implements Comparable<Criterion> {
     boolean isCost; //whether a lower weight is beneficial for the decision.  Assume it is a benefit by default (false)
     private Long userAuthorId;
     @ManyToMany
+    @ToString.Exclude
     private List<Criterion> determinants; //what criteria is used to make this criterion, if any?
 
     @Override

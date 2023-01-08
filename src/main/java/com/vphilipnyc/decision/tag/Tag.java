@@ -17,6 +17,7 @@ import java.util.SortedSet;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Tag implements Persistable {
     @Id
     String id;
@@ -41,6 +42,7 @@ public class Tag implements Persistable {
     Tag parent;
 
     @OneToMany
+    @ToString.Exclude
     SortedSet<Tag> children;
 
     /**
@@ -55,6 +57,7 @@ public class Tag implements Persistable {
     List<String> externalLinks;
 
     @ManyToMany
+    @ToString.Exclude
     SortedSet<Tag> synonyms;
 
 }

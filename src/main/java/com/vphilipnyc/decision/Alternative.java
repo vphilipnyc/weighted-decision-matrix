@@ -16,6 +16,7 @@ import java.util.Map;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Entity
 public class Alternative implements Persistable {
     @Id
@@ -30,4 +31,5 @@ public class Alternative implements Persistable {
     @ElementCollection
     private Map<Criterion, Double> ratingMap;
     private double vector;
+
 }
