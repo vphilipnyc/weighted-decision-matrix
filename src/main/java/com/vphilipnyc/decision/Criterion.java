@@ -21,6 +21,7 @@ public class Criterion implements Comparable<Criterion> {
     @Id
     private Long id;
     private String name;
+    private String description;
     private int weight; // on a scale of 1 to 10, how important is this factor
     boolean isCost; //whether a lower weight is beneficial for the decision.  Assume it is a benefit by default (false)
     private Long userAuthorId;
