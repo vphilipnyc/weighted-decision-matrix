@@ -1,16 +1,28 @@
 package com.vphilipnyc.decision;
 
-import lombok.Builder;
+import lombok.*;
 
+import javax.persistence.*;
 import java.util.Map;
 
 /**
  * An Alternative is a possible ranked outcome for a decision.
  */
+@Getter
+@Setter
 @Builder
-public record Alternative(Long matrixId,
-                          Item item,
-                          Long userId,
-                          Map<Criterion, Double> ratingMap,
-                          double vector) {
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Alternative {
+    @Id
+    private Long matrixId;
+
+    @Transient
+    private Item item;
+
+    private Long userId;
+    @ElementCollection
+    private Map<Criterion, Double> ratingMap;
+    private double vector;
 }

@@ -28,14 +28,14 @@ public class SimpleWeightedSumDecisionMethod implements DecisionMethod {
         }
         //for now assume all benefits (cost == false)
         return allAlternatives.stream()
-                .map(alternative -> new Alternative(alternative.matrixId(),
-                        alternative.item(),
-                        alternative.userId(),
-                        alternative.ratingMap(),
+                .map(alternative -> new Alternative(alternative.getMatrixId(),
+                        alternative.getItem(),
+                        alternative.getUserId(),
+                        alternative.getRatingMap(),
                         allCriteria.stream()
-                                .mapToDouble(criterion -> alternative.ratingMap().get(criterion) * criterion.getWeight())
+                                .mapToDouble(criterion -> alternative.getRatingMap().get(criterion) * criterion.getWeight())
                                 .sum()))
-                .sorted(Comparator.comparing(Alternative::vector).reversed())
+                .sorted(Comparator.comparing(Alternative::getVector).reversed())
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 

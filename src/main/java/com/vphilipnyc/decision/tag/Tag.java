@@ -1,11 +1,9 @@
 package com.vphilipnyc.decision.tag;
 
 import com.vphilipnyc.decision.Persistable;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import javax.persistence.*;
 import java.util.List;
 import java.util.SortedSet;
 
@@ -13,12 +11,15 @@ import java.util.SortedSet;
  * A tag for anything that can be categorized.
  * A tag can have only one parent, but any number of children and any number of aliases (synonyms).
  */
-@Data
+@Entity
+@Getter
+@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tag implements Persistable {
 
+    @Id
     String id;
 
     @Builder.Default
@@ -36,8 +37,11 @@ public class Tag implements Persistable {
     @Builder.Default
     String backgroundColor = "#000";
 
+    @ManyToOne
+    @JoinColumn(name = "PARENT_ID")
     Tag parent;
 
+    @OneToMany
     SortedSet<Tag> children;
 
     /**
@@ -48,8 +52,10 @@ public class Tag implements Persistable {
     /**
      * further documentation on this tag
      */
+    @ElementCollection
     List<String> externalLinks;
 
+    @ManyToMany
     SortedSet<Tag> synonyms;
 
 }

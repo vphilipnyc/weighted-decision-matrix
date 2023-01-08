@@ -3,25 +3,35 @@ package com.vphilipnyc.decision;
 import com.vphilipnyc.decision.methods.DecisionMethod;
 import com.vphilipnyc.decision.tag.Tag;
 import com.vphilipnyc.decision.tag.Taggable;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
+import javax.persistence.*;
 import java.util.*;
 
 /**
  * This is the container object for the decision for display.
  */
-@Data
+@Entity
+@Getter
+@Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Matrix implements Taggable {
+    @Id
     private Long id;
     private String name;
     private String description;
     private Long userAuthorId;
+    @ManyToMany
     private List<Criterion> allCriteria;
+    @ManyToMany
     private List<Alternative> allAlternatives;
+    @ElementCollection
     private Set<Long> allUserParticipantIds;
+    @Transient
     private DecisionMethod decisionMethod;
+    @ManyToMany
     private SortedSet<Tag> tags;
 
     public void rank() {
@@ -29,11 +39,11 @@ public class Matrix implements Taggable {
     }
 
     public Optional<Alternative> mostDesired() {
-        return getAllAlternatives().stream().max(Comparator.comparing(Alternative::vector));
+        return getAllAlternatives().stream().max(Comparator.comparing(Alternative::getVector));
     }
 
     public Optional<Alternative> leastDesired() {
-        return getAllAlternatives().stream().min(Comparator.comparing(Alternative::vector));
+        return getAllAlternatives().stream().min(Comparator.comparing(Alternative::getVector));
     }
 
     //helper methods for a front-end
