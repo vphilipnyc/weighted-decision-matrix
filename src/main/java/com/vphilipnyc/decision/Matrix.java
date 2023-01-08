@@ -17,7 +17,7 @@ import java.util.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Matrix implements Taggable {
+public class Matrix implements Taggable, Persistable {
     @Id
     private Long id;
     private String name;

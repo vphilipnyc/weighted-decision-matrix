@@ -17,11 +17,13 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Alternative {
+public class Alternative implements Persistable {
     @Id
+    private Long id;
+
     private Long matrixId;
 
-    @Transient
+    @Transient //TODO: could be an issue
     private Item item;
 
     private Long userId;
