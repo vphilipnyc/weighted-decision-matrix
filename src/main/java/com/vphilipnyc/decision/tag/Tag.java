@@ -18,7 +18,6 @@ import java.util.SortedSet;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Tag implements Persistable {
-
     @Id
     String id;
 

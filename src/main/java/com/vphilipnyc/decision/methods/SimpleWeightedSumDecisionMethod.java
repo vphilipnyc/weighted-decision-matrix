@@ -28,7 +28,8 @@ public class SimpleWeightedSumDecisionMethod implements DecisionMethod {
         }
         //for now assume all benefits (cost == false)
         return allAlternatives.stream()
-                .map(alternative -> new Alternative(alternative.getMatrixId(),
+                .map(alternative -> new Alternative(alternative.getId(),
+                        alternative.getMatrixId(),
                         alternative.getItem(),
                         alternative.getUserId(),
                         alternative.getRatingMap(),
