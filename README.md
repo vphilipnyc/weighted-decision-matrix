@@ -21,6 +21,6 @@ Weighted decision-making can be applied to a wide variety of decisions, both big
 Here are a few examples of the types of decisions that you can make using this method:
 * Choosing a new job: Consider factors like salary, benefits, commute, company culture, and potential for growth
 * Deciding on a vacation destination: Consider factors like cost, weather, activities, safety, and cultural attractions
-* Selecting a new car: Consider factors like cost, fuel efficiency, safety ratings, features, and style"
+* Selecting a new car: Consider factors like cost, fuel efficiency, safety ratings, features, and style
 
 Happy decision-making!
