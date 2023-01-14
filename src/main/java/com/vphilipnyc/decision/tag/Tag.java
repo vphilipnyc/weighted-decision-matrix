@@ -18,9 +18,9 @@ import java.util.SortedSet;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Tag implements Persistable {
+public class Tag implements Persistable, Comparable<Tag>{
     @Id
-    String id;
+    Long id;
 
     @Builder.Default
     String name = "Name";
@@ -60,4 +60,8 @@ public class Tag implements Persistable {
     @ToString.Exclude
     SortedSet<Tag> synonyms;
 
+    @Override
+    public int compareTo(Tag otherTag) {
+        return Long.compare(id, otherTag.id);
+    }
 }
