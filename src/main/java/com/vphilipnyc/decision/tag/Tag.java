@@ -58,7 +58,7 @@ public class Tag implements Persistable, Comparable<Tag>{
 
     @ManyToMany
     @ToString.Exclude
-    SortedSet<Tag> synonyms;
+    SortedSet<Tag> aliases;
 
     @Override
     public int compareTo(Tag otherTag) {
