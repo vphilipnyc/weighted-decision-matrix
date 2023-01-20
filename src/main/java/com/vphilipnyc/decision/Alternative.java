@@ -1,9 +1,6 @@
 package com.vphilipnyc.decision;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Map;
@@ -20,6 +17,7 @@ import java.util.Map;
 @Entity
 public class Alternative implements Persistable {
     @Id
+    @GeneratedValue
     private Long id;
 
     private Long matrixId;

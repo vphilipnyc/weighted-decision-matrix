@@ -20,6 +20,7 @@ import java.util.*;
 @ToString
 public class Matrix implements Taggable, Persistable {
     @Id
+    @GeneratedValue
     private Long id;
     private String name;
     private String description;
