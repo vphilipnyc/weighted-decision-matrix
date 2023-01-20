@@ -20,6 +20,7 @@ import java.util.SortedSet;
 @ToString
 public class Tag implements Persistable, Comparable<Tag>{
     @Id
+    @GeneratedValue
     Long id;
 
     @Builder.Default
