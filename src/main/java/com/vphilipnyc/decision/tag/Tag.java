@@ -1,11 +1,12 @@
 package com.vphilipnyc.decision.tag;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vphilipnyc.decision.Persistable;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
-import java.util.SortedSet;
+import java.util.Set;
 
 /**
  * A tag for anything that can be categorized.
@@ -18,7 +19,7 @@ import java.util.SortedSet;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Tag implements Persistable, Comparable<Tag>{
+public class Tag implements Persistable, Comparable<Tag> {
     @Id
     @GeneratedValue
     Long id;
@@ -32,19 +33,15 @@ public class Tag implements Persistable, Comparable<Tag>{
     @Builder.Default
     Integer count = 0;
 
-    @Builder.Default
-    String fontColor = "#fff";
-
-    @Builder.Default
-    String backgroundColor = "#000";
-
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PARENT_ID")
+    @ToString.Exclude
     Tag parent;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parent")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ToString.Exclude
-    SortedSet<Tag> children;
+    Set<Tag> children;
 
     /**
      * when the tag is clicked, user is sent to...
@@ -59,10 +56,10 @@ public class Tag implements Persistable, Comparable<Tag>{
 
     @ManyToMany
     @ToString.Exclude
-    SortedSet<Tag> aliases;
+    Set<Tag> aliases;
 
     @Override
     public int compareTo(Tag otherTag) {
-        return Long.compare(id, otherTag.id);
+        return this.name.compareTo(otherTag.name);
     }
 }
