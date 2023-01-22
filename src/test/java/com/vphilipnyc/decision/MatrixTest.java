@@ -1,6 +1,8 @@
 package com.vphilipnyc.decision;
 
 import com.vphilipnyc.decision.methods.SimpleWeightedSumDecisionMethod;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -42,6 +44,7 @@ class MatrixTest {
             .build();
 
     @Test
+    @DisplayName("No alternative given")
     void noAlternativeGivenTest() {
 
         List<Criterion> criteria = new ArrayList<>();
@@ -64,11 +67,14 @@ class MatrixTest {
                 .build();
 
         matrix.rank();
-        assertEquals(0, matrix.getAllAlternatives().size());
-        assertEquals(3, matrix.getAllCriteria().size());
+        Assertions.assertAll(
+                () -> assertEquals(0, matrix.getAllAlternatives().size()),
+                () -> assertEquals(3, matrix.getAllCriteria().size())
+        );
     }
 
     @Test
+    @DisplayName("No criteria given")
     void noCriteriaGivenTest() {
 
         List<Criterion> criteria = new ArrayList<>();
@@ -88,11 +94,15 @@ class MatrixTest {
                 .build();
 
         matrix.rank();
-        assertEquals(0, matrix.getAllAlternatives().size());
-        assertEquals(0, matrix.getAllCriteria().size());
+
+        Assertions.assertAll(
+                () -> assertEquals(0, matrix.getAllAlternatives().size()),
+                () -> assertEquals(0, matrix.getAllCriteria().size())
+        );
     }
 
     @Test
+    @DisplayName("One alternative given")
     void calculateOneAlternativeVector() {
 
         List<Criterion> criteria = new ArrayList<>();
@@ -126,15 +136,18 @@ class MatrixTest {
                 .name("Test matrix 2")
                 .build();
 
-        assertAll(matrix::rank);
-        assertEquals(matrix.getAllAlternatives().size(), 1);
-        assertEquals(matrix.getAllCriteria().size(), 3);
+        Assertions.assertAll(
+                matrix::rank,
+                () -> assertEquals(1, matrix.getAllAlternatives().size()),
+                () -> assertEquals(3, matrix.getAllCriteria().size())
+        );
 
         double totalAlternativeWeight = matrix.getAllAlternatives().get(0).getVector();
         assertEquals(132d, totalAlternativeWeight);
     }
 
     @Test
+    @DisplayName("Two alternatives given")
     void calculateTwoAlternativeVector() {
 
         List<Criterion> criteria = new ArrayList<>();
@@ -184,12 +197,13 @@ class MatrixTest {
                 .name("Test matrix 4")
                 .build();
 
-        assertAll(matrix::rank);
-        assertEquals(matrix.getAllAlternatives().size(), 2);
-        assertEquals(matrix.getAllCriteria().size(), 3);
-
-        assertEquals(132d, matrix.getAllAlternatives().get(0).getVector());
-        assertEquals(112d, matrix.getAllAlternatives().get(1).getVector());
+        Assertions.assertAll(
+                matrix::rank,
+                () -> assertEquals(2, matrix.getAllAlternatives().size()),
+                () -> assertEquals(3, matrix.getAllCriteria().size()),
+                () -> assertEquals(132d, matrix.getAllAlternatives().get(0).getVector()),
+                () -> assertEquals(112d, matrix.getAllAlternatives().get(1).getVector())
+        );
 
         double totalAlternativeWeight = matrix.getAllAlternatives().get(0).getVector();
         assertEquals(132d, totalAlternativeWeight);
