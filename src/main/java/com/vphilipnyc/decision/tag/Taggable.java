@@ -1,9 +1,9 @@
 package com.vphilipnyc.decision.tag;
 
-import java.util.SortedSet;
+import java.util.Set;
 
 @FunctionalInterface
 public interface Taggable {
-    SortedSet<Tag> getTags(); //we want to preserve the order of the tags for readability
+    Set<Tag> getTags();
 
 }
