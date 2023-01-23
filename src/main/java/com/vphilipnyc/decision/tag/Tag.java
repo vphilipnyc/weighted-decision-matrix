@@ -52,11 +52,13 @@ public class Tag implements Persistable, Comparable<Tag> {
      * further documentation on this tag
      */
     @ElementCollection
+    @ToString.Exclude
     List<String> externalLinks;
 
     @ManyToMany
     @ToString.Exclude
     Set<Tag> aliases;
+
 
     @Override
     public int compareTo(Tag otherTag) {
