@@ -1,12 +1,11 @@
 package com.vphilipnyc.decision.tag;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vphilipnyc.decision.Persistable;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import lombok.*;
-
-import java.util.List;
-import java.util.Set;
+import lombok.experimental.SuperBuilder;
 
 /**
  * A tag for anything that can be categorized.
@@ -15,7 +14,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@Builder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -32,33 +31,6 @@ public class Tag implements Persistable, Comparable<Tag> {
 
     @Builder.Default
     Integer count = 0;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "PARENT_ID")
-    @ToString.Exclude
-    Tag parent;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "parent")
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @ToString.Exclude
-    Set<Tag> children;
-
-    /**
-     * when the tag is clicked, user is sent to...
-     */
-    String targetLink;
-
-    /**
-     * further documentation on this tag
-     */
-    @ElementCollection
-    @ToString.Exclude
-    List<String> externalLinks;
-
-    @ManyToMany
-    @ToString.Exclude
-    Set<Tag> aliases;
-
 
     @Override
     public int compareTo(Tag otherTag) {
