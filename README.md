@@ -1,7 +1,6 @@
 # Weighted Decision-Making
-https://img.shields.io/github/actions/workflow/status/vphilipnyc/weighted-decision-matrix/gradle.yml
 
-https://img.shields.io/github/languages/code-size/vphilipnyc/weighted-decision-matrix
+[![Build Status][github-actions-status]][github-actions-url]
 
 Using weighted decision-making is simple and straightforward. 
 
@@ -27,3 +26,8 @@ Here are a few examples of the types of decisions that you can make using this m
 * Selecting a new car: Consider factors like cost, fuel efficiency, safety ratings, features, and style
 
 Happy decision-making!
+
+
+[github-actions-status]: https://img.shields.io/github/actions/workflow/status/vphilipnyc/weighted-decision-matrix/gradle.yml
+[github-actions-url]: https://github.com/vphilipnyc/weighted-decision-matrix/actions
+[github-code-size-url]: https://img.shields.io/github/languages/code-size/vphilipnyc/weighted-decision-matrix
