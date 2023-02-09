@@ -1,8 +1,4 @@
 # Weighted Decision-Making
-https://img.shields.io/github/actions/workflow/status/vphilipnyc/weighted-decision-matrix/gradle.yml
-
-https://img.shields.io/github/languages/code-size/vphilipnyc/weighted-decision-matrix
-
 [![Build Status][github-actions-status]][github-actions-url]
 
 Using weighted decision-making is simple and straightforward. 
