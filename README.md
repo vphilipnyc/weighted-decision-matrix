@@ -1,6 +1,7 @@
 # Weighted Decision-Making
 [![Build Status][github-actions-status]][github-actions-url]
 
+This structure was inspired by a Decision Making course taught at Carnegie Mellon's Tepper School of Business.
 Using weighted decision-making is simple and straightforward. 
 
 First, you'll identify all the factors that are important to you when making a decision. 
